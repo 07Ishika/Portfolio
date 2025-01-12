@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishika Anam</title>
+    <link rel="stylesheet" href="./Assets/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./Assets/CSS/aos.css">
+    <link rel="stylesheet" href="./Assets/CSS/line-awesome.min.css">
+    <link rel="stylesheet" href="./Assets/CSS/style.css">
+    <style>
+        /* Vertical Carousel Styles */
+        .vertical-carousel {
+            width: 120px;
+            height: 100%;
+            overflow: hidden;
+            padding-right: 60px;
+            position: fixed;
+            right: 0;
+            transition: opacity 0.5s ease;
+        }
+        .carousel-track {
+            display: flex;
+            flex-direction: column;
+            animation: scroll-vertical 8s linear infinite;
+        }
+        .slide {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .slide img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            border-radius: 5px;
+        }
+        @keyframes scroll-vertical {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        /* Home section set to 100vh */
+        #home {
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Hide the carousel by default */
+        .vertical-carousel {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!---NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid flex-lg-column">
+            <a class="navbar-brand mb-lg-4 mx-lg-0" href="#">
+                <span class="h3 fw-bold d-blck d-lg-none">Ishika Anam</span>
+                <img src="./Assets/Images/ishikaimg.jpeg"style="height:230px; width:220px;" class="d-none d-lg-block rounded-circle"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto flex-lg-column text-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#work">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Connect">Connect</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+   <!---//NAVBAR-->
+
+    <!---CONTENT WRAPPER-->
+    <div id="content-wrapper">
+        <!---HOME-->
+        <section id="home" class="full-height px-lg-5">
+            <div class="container">
+                <div class="row pb-4">
+                    <div class="col-lg-10 main">
+                        <H1 class="display-4 fw-bold" data-aos="fade-up">ISHIKA ANAM</H1>
+                        <h3 data-aos="fade-up">I'M AN<span class="text-brand"> IT ENGINEER</span></h3>
+                        <p class="lead mt-4 mb-8" data-aos="fade-up" data-aos-delay="600">
+                            "Passionate about technology, innovation, and problem-solving. Skilled in Web development, Python programming, and exploring cloud and DevOps technologies, I am eager to build solutions that make a difference."
+                        </p>
+                        <img class="box-img mt-2" data-aos="fade-up" data-aos-delay="800" 
+                             style="height:45px; width:60px;" src="./Assets/Images/resume downloadicon.png"/>
+                        <a href="./Assets/Ishika_CV portfolio.pdf" class="btn btn-brand mx-2 mt-2" data-aos="fade-up" data-aos-delay="800">RESUME</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vertical Carousel (only appears in the Home section) -->
+            <!-- <div class="vertical-carousel" id="verticalCarousel"> -->
+                <!-- <div class="carousel-track">
+                    <div class="slide"><img src="logo1.png" alt="Logo 1"></div>
+                    <div class="slide"><img src="logo2.png" alt="Logo 2"></div>
+                    <div class="slide"><img src="logo3.png" alt="Logo 3"></div>
+                    <div class="slide"><img src="logo4.png" alt="Logo 4"></div>
+                </div>
+            </div> -->
+        </section>
+
+        <!---WORK SECTION-->
+        <section id="work" class="full-height px-lg-5">
+            <div class="container">
+              <div class="row pb-4"data-aos="fade-up">
+               <div class="col-lg-8" >
+                 <h6 class="text-brand">WORK</h6>
+                 <h1>My Recent Projects</h1>
+               </div>
+              </div>
+             <div class="row gy-4">
+                <div class="col-lg-6" data-aos="fade-up"  >
+                  <div class="card-custom rounded-4 bg-base shadow-effect">
+                    <div class="card-custom-image rounded-4">
+                      <img class="rounded-4" src="./Assets/Images/Project3-img portfolio.png" style="height:300px;width:400px" alt="">
+                      <div class="card-custom-content p-4">
+                         <h4>Simon Says Game</h4>
+                         <p>
+                          “A fun, interactive memory game where players repeat color and sound sequences that grow in complexity. Built with HTML, CSS, and JavaScript for a smooth and responsive experience."
+                         </p>
+                         <a href="https://07ishika.github.io/SiminSaysGame/" class="link-custom">Sart Your Turn</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400"  >
+                  <div class="card-custom rounded-4 bg-base shadow-effect">
+                    <div class="card-custom-image rounded-4 ">
+                      <img class="rounded-4" src="./Assets/Images/Project4-img portfolio.png" style="height:300px;width:400px" alt="">
+                      <div class="card-custom-content p-4">
+                         <h4>Chanting WebApp</h4>
+                         <p>
+                          "Crafted a serene chanting web app that offers personalized mantras, session tracking, and ambient sound integration – fostering mindfulness and spiritual growth through technology."
+                         </p>
+                         <a href="https://07ishika.github.io/Chanting_WebApp/" class="link-custom">Explore Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div><div class="col-lg-6" data-aos="fade-up"  >
+                 <div class="card-custom rounded-4 bg-base shadow-effect">
+                   <div class="card-custom-image rounded-4">
+                     <img class="rounded-4" src="./Assets/Images/Project1-img portfolio.png" style="height:300px;width:400px" alt="">
+                     <div class="card-custom-content p-4">
+                        <h4>NGOs Administrative Sys Webapp(Frontend)</h4>
+                        <p>
+                         "Crafted a sleek, efficient web app to simplify NGO operations – enabling seamless food-donation scheduling, volunteer coordination, and donor management with automated workflows."
+                        </p>
+                        <a href="https://github.com/Veer564/PBL-Project-Sem-3" class="link-custom">Read More</a>
+                     </div>
+                   </div>    
+                 </div>
+               </div>
+               <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                 <div class="card-custom rounded-4 bg-base shadow-effect">
+                   <div class="card-custom-image rounded-4">
+                    <img class="rounded-4" src="./Assets/Images/Project2-img portfolio (2).png" style="height:300px;width:350px" alt="">
+                     <div class="card-custom-content p-4">
+                       <h4>Event Management Landing page</h4>
+                       <p>
+                        "Developed a responsive and visually appealing landing page for an event management platform. Features include intuitive navigation, Showcasing events decor gallery, and and servises provided for your memorable events, built using HTML, CSS, and JavaScript."
+                       </p>
+                       <a href=" https://07ishika.github.io/Event_decor-gallery/" class="link-custom">Explore More</a>
+                     </div>
+                   </div>
+                 </div>
+              </div>
+         </div>
+         </div>
+        </section>
+        <!---//WORK SECTION-->
+
+        <!-- ABOUT -->
+      <section id="about" class="full-height px-lg-5">
+        <div class="container">
+
+            <div class="row pb-4">
+                <div class="col-lg-6" data-aos="fade-up">
+                  <h6 class="text-brand">ABOUT</h6>
+                  <h1>Education + Tools & Languages</h1>
+                </div>
+            </div>
+
+            <div class="row gy-5">
+                <div class="col-lg-6">
+
+                  <h3 class="mb-4" data-aos="fade-up" data-aos-delay="400">Education</h3>
+                    <div class="row gy-4">
+
+                        <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+                            <div class="bg-base p-4 rounded-4 shadow-effect">
+                                <h4>Bachelors in Information Technology</h4>
+                                <p class="text-brand mb-2">KJ Somaiya Institute of Technology (2023-2027)</p>
+                                <p class="mb-0">"Currently pursuing a Engineering Degree at KJSIT, where I am honing my skills in technology and software development to prepare for a dynamic career in the tech industry."</p>
+                            </div>
+                        </div>
+                        <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+                            <div class="bg-base p-4 rounded-4 shadow-effect">
+                                <h4>College </h4>
+                                <p class="text-brand mb-2">Pace Junior Science College(2021-2023)</p>
+                                <p class="mb-0">"Completed my 11th and 12th grades at PACE Junior Science College, where I built a strong foundation in science and mathematics, fueling my passion for technology and engineering."</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 px-6 right">
+
+                    <h3 class="" data-aos="fade-up" data-aos-delay="400">Tools and Languages</h3>
+                    <div class="row gy-4">
+
+                        <div class="col-9" data-aos="fade-up" data-aos-delay="500">
+                            <div class="bg-base p-4 rounded-4 shadow-effect">
+                                <img src="./Assets/Images/Languages and Tools img.png" alt="">
+                            </div>
+                        </div>  
+                    </div>
+
+                </div>
+            </div>
+        </div>
+      </section>
+        <!--//ABOUT -->
+        <section id="Connect" class="full-height px-lg-5">
+            <div class="container">
+
+            <div class="col-lg-15">
+                <h4 class="text-brand mb-4">Lets get in touch</h4>
+                <img class=" linkedin mx-3" href="https://www.linkedin.com/in/ishika-anam-12a44328a/"src="./Assets/Images/linkedin.png" style="height:40px; width:40px;" alt="">
+                <img class="instagram mx-2" href=""src="./Assets/Images/instagram.png" style="height:40px; width: 40px;" alt="">
+                <img class="gitHub mx-3"src="./Assets/Images/github.png" style="height:40px; width: 40px;" alt="">
+            </div>
+        </section>
+    </div>
+    <!---//CONTENT WRAPPER-->
+
+    <script src="./Assets/JS/aos.js"></script>
+    <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
+    <script src="./Assets/JS/main.js"></script>
+
+   
+</body>
+</html>  
