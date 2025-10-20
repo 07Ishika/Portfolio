@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ishika Anam</title>
+    <title>Ishika Anam - IT Engineer & Developer</title>
+    <meta name="description"
+        content="Passionate IT Engineer specializing in web development, Python programming, and cloud technologies. Explore my projects and achievements.">
     <link rel="stylesheet" href="./Assets/CSS/bootstrap.min.css">
     <link rel="stylesheet" href="./Assets/CSS/aos.css">
     <link rel="stylesheet" href="./Assets/CSS/line-awesome.min.css">
     <link rel="stylesheet" href="./Assets/CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
         /* Vertical Carousel Styles */
         .vertical-carousel {
@@ -19,11 +24,13 @@
             right: 0;
             transition: opacity 0.5s ease;
         }
+
         .carousel-track {
             display: flex;
             flex-direction: column;
             animation: scroll-vertical 8s linear infinite;
         }
+
         .slide {
             height: 100px;
             display: flex;
@@ -32,16 +39,19 @@
             box-sizing: border-box;
             margin-bottom: 20px;
         }
+
         .slide img {
             max-width: 100%;
             max-height: 100%;
             display: block;
             border-radius: 5px;
         }
+
         @keyframes scroll-vertical {
             0% {
                 transform: translateY(0);
             }
+
             100% {
                 transform: translateY(-100%);
             }
@@ -57,17 +67,94 @@
         .vertical-carousel {
             opacity: 1;
         }
+
+        /* Cursor Magnification Effect */
+        .cursor-magnify {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            border: 2px solid var(--color-brand);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+            background: rgba(224, 247, 128, 0.1);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .cursor-magnify.active {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Glassmorphism Effects */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--color-brand);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--color-brand);
+        }
+
+        /* Typing Animation */
+        .typing-text {
+            border-right: 3px solid var(--color-brand);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                border-color: var(--color-brand);
+            }
+
+            51%,
+            100% {
+                border-color: transparent;
+            }
+        }
     </style>
 </head>
+
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+        <i class="las la-sun" id="themeIcon"></i>
+    </button>
+
+    <!-- Cursor Magnify Effect -->
+    <div class="cursor-magnify" id="cursorMagnify"></div>
+
     <!---NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-card">
         <div class="container-fluid flex-lg-column">
             <a class="navbar-brand mb-lg-4 mx-lg-0" href="#">
                 <span class="h3 fw-bold d-blck d-lg-none">Ishika Anam</span>
-                <img src="./Assets/Images/ishikaimg.jpeg"style="height:230px; width:220px;" class="d-none d-lg-block rounded-circle"/>
+                <img src="./Assets/Images/ishikaimg.jpeg" style="height:230px; width:220px;"
+                    class="d-none d-lg-block rounded-circle profile-img" />
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -79,7 +166,13 @@
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#work">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Achievements</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#Connect">Connect</a>
@@ -88,7 +181,7 @@
             </div>
         </div>
     </nav>
-   <!---//NAVBAR-->
+    <!---//NAVBAR-->
 
     <!---CONTENT WRAPPER-->
     <div id="content-wrapper">
@@ -97,169 +190,485 @@
             <div class="container">
                 <div class="row pb-4">
                     <div class="col-lg-10 main">
-                        <H1 class="display-4 fw-bold" data-aos="fade-up">ISHIKA ANAM</H1>
-                        <h3 data-aos="fade-up">I'M AN<span class="text-brand"> IT ENGINEER</span></h3>
-                        <p class="lead mt-4 mb-8" data-aos="fade-up" data-aos-delay="600">
-                            "Passionate about technology, innovation, and problem-solving. Skilled in Web development, Python programming, and exploring cloud and DevOps technologies, I am eager to build solutions that make a difference."
+                        <H1 class="display-4 fw-bold" data-aos="fade-up">
+                            <span id="typingName" class="typing-text"></span>
+                        </H1>
+                        <h3 data-aos="fade-up" data-aos-delay="200">I'M AN<span class="text-brand">
+                                <span id="typingRole" class="typing-text"></span>
+                            </span></h3>
+                        <p class="lead mt-4 mb-8 glass-card p-4" data-aos="fade-up" data-aos-delay="600">
+                            "Passionate about technology, innovation, and problem-solving. Skilled in Web development, Python programming, and AI technologies. I am an AI enthusiast eager to learn emerging technologies and create innovative solutions that transform problems into modern, optimized outcomes."
                         </p>
-                        <img class="box-img mt-2" data-aos="fade-up" data-aos-delay="800" 
-                             style="height:45px; width:60px;" src="./Assets/Images/resume downloadicon.png"/>
-                        <a href="./Assets/Ishika_CV portfolio.pdf" class="btn btn-brand mx-2 mt-2" data-aos="fade-up" data-aos-delay="800">RESUME</a>
+                        <div class="d-flex align-items-center mt-4">
+                            <img class="box-img animated-icon" data-aos="fade-up" data-aos-delay="800"
+                                style="height:45px; width:60px;" src="./Assets/Images/resume downloadicon.png" />
+                            <a href="./Assets/Ishika_CV portfolio.pdf" class="btn btn-brand mx-2 glass-card"
+                                data-aos="fade-up" data-aos-delay="800">
+                                <i class="las la-download me-2"></i>RESUME
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Vertical Carousel (only appears in the Home section) -->
-            <!-- <div class="vertical-carousel" id="verticalCarousel"> -->
-                <!-- <div class="carousel-track">
-                    <div class="slide"><img src="logo1.png" alt="Logo 1"></div>
-                    <div class="slide"><img src="logo2.png" alt="Logo 2"></div>
-                    <div class="slide"><img src="logo3.png" alt="Logo 3"></div>
-                    <div class="slide"><img src="logo4.png" alt="Logo 4"></div>
-                </div>
-            </div> -->
         </section>
 
         <!---WORK SECTION-->
         <section id="work" class="full-height px-lg-5">
             <div class="container">
-              <div class="row pb-4"data-aos="fade-up">
-               <div class="col-lg-8" >
-                 <h6 class="text-brand">WORK</h6>
-                 <h1>My Recent Projects</h1>
-               </div>
-              </div>
-             <div class="row gy-4">
-                <div class="col-lg-6" data-aos="fade-up"  >
-                  <div class="card-custom rounded-4 bg-base shadow-effect">
-                    <div class="card-custom-image rounded-4">
-                      <img class="rounded-4" src="./Assets/Images/Project3-img portfolio.png" style="height:300px;width:400px" alt="">
-                      <div class="card-custom-content p-4">
-                         <h4>Simon Says Game</h4>
-                         <p>
-                          “A fun, interactive memory game where players repeat color and sound sequences that grow in complexity. Built with HTML, CSS, and JavaScript for a smooth and responsive experience."
-                         </p>
-                         <a href="https://07ishika.github.io/SiminSaysGame/" class="link-custom">Sart Your Turn</a>
-                      </div>
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+                        <h6 class="text-brand">WORK</h6>
+                        <h1>My Recent Projects</h1>
+                        <p class="lead">Explore my diverse portfolio of web applications, games, and innovative solutions built with modern technologies.</p>
                     </div>
-                  </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400"  >
-                  <div class="card-custom rounded-4 bg-base shadow-effect">
-                    <div class="card-custom-image rounded-4 ">
-                      <img class="rounded-4" src="./Assets/Images/Project4-img portfolio.png" style="height:300px;width:400px" alt="">
-                      <div class="card-custom-content p-4">
-                         <h4>Chanting WebApp</h4>
-                         <p>
-                          "Crafted a serene chanting web app that offers personalized mantras, session tracking, and ambient sound integration – fostering mindfulness and spiritual growth through technology."
-                         </p>
-                         <a href="https://07ishika.github.io/Chanting_WebApp/" class="link-custom">Explore Now</a>
-                      </div>
+                
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Project 1 - First Row -->
+                    <div class="project-card glass-card" data-aos="fade-up">
+                        <div class="project-image">
+                            <img src="./Assets/Images/Project3-img portfolio.png" alt="Simon Says Game">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://07ishika.github.io/SiminSaysGame/" target="_blank" class="btn-project live">
+                                        <i class="las la-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/07Ishika/SiminSaysGame" target="_blank" class="btn-project github">
+                                        <i class="lab la-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4>Simon Says Game</h4>
+                            <p>Interactive memory game with color and sound sequences. Built with vanilla JavaScript for smooth gameplay experience.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div><div class="col-lg-6" data-aos="fade-up"  >
-                 <div class="card-custom rounded-4 bg-base shadow-effect">
-                   <div class="card-custom-image rounded-4">
-                     <img class="rounded-4" src="./Assets/Images/Project1-img portfolio.png" style="height:300px;width:400px" alt="">
-                     <div class="card-custom-content p-4">
-                        <h4>NGOs Administrative Sys Webapp(Frontend)</h4>
-                        <p>
-                         "Crafted a sleek, efficient web app to simplify NGO operations – enabling seamless food-donation scheduling, volunteer coordination, and donor management with automated workflows."
-                        </p>
-                        <a href="https://github.com/Veer564/PBL-Project-Sem-3" class="link-custom">Read More</a>
-                     </div>
-                   </div>    
-                 </div>
-               </div>
-               <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                 <div class="card-custom rounded-4 bg-base shadow-effect">
-                   <div class="card-custom-image rounded-4">
-                    <img class="rounded-4" src="./Assets/Images/Project2-img portfolio (2).png" style="height:300px;width:350px" alt="">
-                     <div class="card-custom-content p-4">
-                       <h4>Event Management Landing page</h4>
-                       <p>
-                        "Developed a responsive and visually appealing landing page for an event management platform. Features include intuitive navigation, Showcasing events decor gallery, and and servises provided for your memorable events, built using HTML, CSS, and JavaScript."
-                       </p>
-                       <a href=" https://07ishika.github.io/Event_decor-gallery/" class="link-custom">Explore More</a>
-                     </div>
-                   </div>
-                 </div>
-              </div>
-         </div>
-         </div>
+
+                    <!-- Project 2 - First Row -->
+                    <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-image">
+                            <img src="./Assets/Images/Zerowastentwk porfolioimg.jpeg" alt="ZeroWasteNetwork Platform">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://zerowastenetwork.vercel.app" target="_blank" class="btn-project live">
+                                        <i class="las la-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/07Ishika/Zero-Waste-Network" target="_blank" class="btn-project github">
+                                        <i class="lab la-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4>ZeroWasteNetwork</h4>
+                            <p>Food waste management platform connecting hotels, colleges, and mess halls with people in need. Features food expiry tracking, compost community integration, and complete food recycling ecosystem.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Spring Boot</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 - First Row -->
+                    <div class="project-card glass-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <i class="las la-globe-americas" style="font-size: 4rem; color: var(--color-brand);"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://guide-voyage-link.vercel.app" target="_blank" class="btn-project live">
+                                        <i class="las la-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/07Ishika/guide-voyage-link" target="_blank" class="btn-project github">
+                                        <i class="lab la-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4>Voyagery - Immigration Guidance</h4>
+                            <p>Full-stack prototype platform for connecting migrants with immigration guides. Demonstrates dual-role architecture, authentication systems, and modern web development practices with React and Node.js.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">OAuth</span>
+                                <span class="tech-tag">Prototype</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 - Second Row (Hidden initially) -->
+                    <div class="project-card glass-card hidden-project" data-aos="fade-up" data-aos-delay="600">
+                        <div class="project-image">
+                            <img src="./Assets/Images/Project4-img portfolio.png" alt="Chanting WebApp">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://07ishika.github.io/Chanting_WebApp/" target="_blank" class="btn-project live">
+                                        <i class="las la-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/07Ishika/Chanting_WebApp" target="_blank" class="btn-project github">
+                                        <i class="lab la-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4>Chanting WebApp</h4>
+                            <p>Serene meditation app with personalized mantras, session tracking, and ambient sound integration for mindfulness.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Web Audio API</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 - Second Row (Hidden initially) -->
+                    <div class="project-card glass-card hidden-project" data-aos="fade-up" data-aos-delay="800">
+                        <div class="project-image">
+                            <img src="./Assets/Images/Project1-img portfolio.png" alt="NGO Management System">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Veer564/PBL-Project-Sem-3" target="_blank" class="btn-project github">
+                                        <i class="lab la-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4>NGO Management System</h4>
+                            <p>Comprehensive web application for NGO operations including donation scheduling, volunteer coordination, and donor management.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Express</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 - Second Row (Hidden initially) -->
+                    <div class="project-card glass-card hidden-project" data-aos="fade-up" data-aos-delay="1000">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <i class="las la-tshirt" style="font-size: 4rem; color: var(--color-brand);"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://07ishika.github.io/Khadi-Threads-React/" target="_blank" class="btn-project live">
+                                        <i class="las la-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="https://github.com/07Ishika/Khadi-Threads-React" target="_blank" class="btn-project github">
+                                        <i class="lab la-github"></i> GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4>Khadi Threads - E-commerce</h4>
+                            <p>Responsive e-commerce landing page for Khadi cloth products. Features modern design, product showcase, and smooth user experience promoting traditional Indian textiles.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Tailwind CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Show More Button -->
+                <div class="text-center mt-5">
+                    <button id="showMoreBtn" class="btn-show-more glass-card" onclick="toggleProjects()">
+                        <i class="las la-plus-circle me-2"></i>
+                        <span id="btnText">Show More Projects</span>
+                        <span class="project-count">(+3)</span>
+                    </button>
+                </div>
+            </div>
         </section>
         <!---//WORK SECTION-->
 
+        <!-- ACHIEVEMENTS SECTION -->
+        <section id="achievements" class="full-height px-lg-5">
+            <div class="container">
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+                        <h6 class="text-brand">ACHIEVEMENTS</h6>
+                        <h1>Hackathons & Certifications</h1>
+                    </div>
+                </div>
+                
+                <div class="row gy-4 justify-content-center">
+                    <div class="col-lg-4" data-aos="fade-up">
+                        <div class="achievement-card glass-card p-4 rounded-4 shadow-effect text-center">
+                            <div class="achievement-icon mb-3">
+                                <i class="las la-trophy" style="font-size: 3rem; color: var(--color-brand);"></i>
+                            </div>
+                            <h4>Code Odyssey 4.0</h4>
+                            <p class="text-brand mb-2">2024 • Top 20 Teams</p>
+                            <p>Selected as one of the Top 20 teams at CSI x Code Odyssey 4.0 Hackathon by Tata STRIVE at K. J. Somaiya Institute of Technology. Built EduTrack - AI-powered learning support dashboard.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="achievement-card glass-card p-4 rounded-4 shadow-effect text-center">
+                            <div class="achievement-icon mb-3">
+                                <i class="las la-medal" style="font-size: 3rem; color: var(--color-brand);"></i>
+                            </div>
+                            <h4>RIIDL Hackathon</h4>
+                            <p class="text-brand mb-2">2024 • Participant</p>
+                            <p>Participated in hackathon organized by RIIDL (Research, Innovation, Incubation Design Laboratory) at Somaiya Vidyavihar. Focused on startup innovation and entrepreneurship solutions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="achievement-card glass-card p-4 rounded-4 shadow-effect text-center">
+                            <div class="achievement-icon mb-3">
+                                <i class="las la-code" style="font-size: 3rem; color: var(--color-brand);"></i>
+                            </div>
+                            <h4>SIH Internal Hackathon</h4>
+                            <p class="text-brand mb-2">2024 • KJ Somaiya Institute</p>
+                            <p>Participated in Smart India Hackathon internal selection at K.J. Somaiya Institute of Technology. Developed innovative solutions for real-world problems and competed with fellow students.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="full-height px-lg-5">
+            <div class="container">
+                <div class="row pb-4" data-aos="fade-up">
+                    <div class="col-lg-8">
+                        <h6 class="text-brand">EXPERIENCE</h6>
+                        <h1>Professional Journey</h1>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="timeline">
+                            <div class="timeline-item glass-card" data-aos="fade-up">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content p-4">
+                                    <h4>Developer Intern</h4>
+                                    <p class="text-brand mb-2">Etherate Labs • RIIDL Incubated Startup</p>
+                                    <p>Worked as a developer intern at Etherate Labs, a startup incubated by RIIDL (Research, Innovation, Incubation Design Laboratory) at Somaiya Vidyavihar. Contributed to innovative tech solutions and gained hands-on experience with cutting-edge AI tools including Tavus.io and ElevenLabs for advanced video and audio generation.</p>
+                                    <div class="timeline-skills">
+                                        <span class="skill-tag">Web Development</span>
+                                        <span class="skill-tag">AI Tools</span>
+                                        <span class="skill-tag">Tavus.io</span>
+                                        <span class="skill-tag">ElevenLabs</span>
+                                        <span class="skill-tag">Startup Environment</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ABOUT -->
-      <section id="about" class="full-height px-lg-5">
-        <div class="container">
-
-            <div class="row pb-4">
-                <div class="col-lg-6" data-aos="fade-up">
-                  <h6 class="text-brand">ABOUT</h6>
-                  <h1>Education + Tools & Languages</h1>
+        <section id="about" class="full-height px-lg-5">
+            <div class="container">
+                <div class="row pb-4">
+                    <div class="col-lg-6" data-aos="fade-up">
+                        <h6 class="text-brand">ABOUT</h6>
+                        <h1>Education + Tools & Languages</h1>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row gy-5">
-                <div class="col-lg-6">
-
-                  <h3 class="mb-4" data-aos="fade-up" data-aos-delay="400">Education</h3>
-                    <div class="row gy-4">
-
-                        <div class="col-12" data-aos="fade-up" data-aos-delay="500">
-                            <div class="bg-base p-4 rounded-4 shadow-effect">
-                                <h4>Bachelors in Information Technology</h4>
-                                <p class="text-brand mb-2">KJ Somaiya Institute of Technology (2023-2027)</p>
-                                <p class="mb-0">"Currently pursuing a Engineering Degree at KJSIT, where I am honing my skills in technology and software development to prepare for a dynamic career in the tech industry."</p>
+                <div class="row gy-5">
+                    <div class="col-lg-6">
+                        <h3 class="mb-4" data-aos="fade-up" data-aos-delay="400">Education</h3>
+                        <div class="row gy-4">
+                            <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+                                <div class="bg-base p-4 rounded-4 shadow-effect">
+                                    <h4>Bachelors in Information Technology</h4>
+                                    <p class="text-brand mb-2">KJ Somaiya Institute of Technology (2023-2027)</p>
+                                    <p class="mb-0">"Currently pursuing a Engineering Degree at KJSIT, where I am honing my skills in technology and software development to prepare for a dynamic career in the tech industry."</p>
+                                </div>
+                            </div>
+                            <div class="col-12" data-aos="fade-up" data-aos-delay="600">
+                                <div class="bg-base p-4 rounded-4 shadow-effect">
+                                    <h4>College</h4>
+                                    <p class="text-brand mb-2">Pace Junior Science College(2021-2023)</p>
+                                    <p class="mb-0">"Completed my 11th and 12th grades at PACE Junior Science College, where I built a strong foundation in science and mathematics, fueling my passion for technology and engineering."</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-12" data-aos="fade-up" data-aos-delay="600">
-                            <div class="bg-base p-4 rounded-4 shadow-effect">
-                                <h4>College </h4>
-                                <p class="text-brand mb-2">Pace Junior Science College(2021-2023)</p>
-                                <p class="mb-0">"Completed my 11th and 12th grades at PACE Junior Science College, where I built a strong foundation in science and mathematics, fueling my passion for technology and engineering."</p>
+                    </div>
+
+                    <div class="col-lg-6 px-6 right">
+                        <h3 class="" data-aos="fade-up" data-aos-delay="400">Tools and Languages</h3>
+                        <div class="row gy-4">
+                            <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+                                <div class="glass-card p-4 rounded-4 shadow-effect">
+                                    <div class="tech-logos">
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="600">
+                                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" title="React">
+                                            <span>React</span>
+                                        </div>
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="700">
+                                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" title="Node.js">
+                                            <span>Node.js</span>
+                                        </div>
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="800">
+                                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" title="MongoDB">
+                                            <span>MongoDB</span>
+                                        </div>
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="900">
+                                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" title="Express.js">
+                                            <span>Express</span>
+                                        </div>
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="1000">
+                                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" alt="Supabase" title="Supabase">
+                                            <span>Supabase</span>
+                                        </div>
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="1100">
+                                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+                                            <span>Python</span>
+                                        </div>
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="1200">
+                                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript">
+                                            <span>JavaScript</span>
+                                        </div>
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="1300">
+                                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git">
+                                            <span>Git</span>
+                                        </div>
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="1400">
+                                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">AI</div>
+                                            <span>Tavus.io</span>
+                                        </div>
+                                        <div class="logo-item" data-aos="zoom-in" data-aos-delay="1500">
+                                            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 10px;">11L</div>
+                                            <span>ElevenLabs</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
                     </div>
-
-                </div>
-
-                <div class="col-lg-6 px-6 right">
-
-                    <h3 class="" data-aos="fade-up" data-aos-delay="400">Tools and Languages</h3>
-                    <div class="row gy-4">
-
-                        <div class="col-9" data-aos="fade-up" data-aos-delay="500">
-                            <div class="bg-base p-4 rounded-4 shadow-effect">
-                                <img src="./Assets/Images/Languages and Tools img.png" alt="">
-                            </div>
-                        </div>  
-                    </div>
-
                 </div>
             </div>
-        </div>
-      </section>
-        <!--//ABOUT -->
+        </section>
+
+        <!-- CONNECT SECTION -->
         <section id="Connect" class="full-height px-lg-5">
             <div class="container">
-
-            <div class="col-lg-15">
-                <h4 class="text-brand mb-4">Lets get in touch</h4>
-                <img class=" linkedin mx-3" href="https://www.linkedin.com/in/ishika-anam-12a44328a/"src="./Assets/Images/linkedin.png" style="height:40px; width:40px;" alt="">
-                <img class="instagram mx-2" href=""src="./Assets/Images/instagram.png" style="height:40px; width: 40px;" alt="">
-                <img class="gitHub mx-3"src="./Assets/Images/github.png" style="height:40px; width: 40px;" alt="">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h6 class="text-brand">CONNECT</h6>
+                        <h1 class="mb-4">Let's Get In Touch</h1>
+                        <p class="lead mb-5">Ready to collaborate on exciting projects? Let's connect and create something amazing together!</p>
+                        
+                        <div class="social-links mb-5">
+                            <a href="https://www.linkedin.com/in/ishika-anam-12a44328a/" class="social-link glass-card linkedin" target="_blank">
+                                <i class="lab la-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/_07_ishika?utm_source=qr&igsh=MW01MDlmc3VsMXYzZw==" class="social-link glass-card instagram" target="_blank">
+                                <i class="lab la-instagram"></i>
+                            </a>
+                            <a href="https://github.com/07Ishika" class="social-link glass-card github" target="_blank">
+                                <i class="lab la-github"></i>
+                            </a>
+                            <a href="mailto:ishika.anam@example.com" class="social-link glass-card email">
+                                <i class="las la-envelope"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="contact-form glass-card p-4 rounded-4">
+                            <h4 class="mb-4">Send me a message</h4>
+                            <form id="contactForm" action="https://formspree.io/f/xjkadgwk" method="POST">
+                                <div class="row gy-3">
+                                    <div class="col-md-6">
+                                        <input type="text" name="name" class="form-control glass-input" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" name="email" class="form-control glass-input" placeholder="Your Email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" name="subject" class="form-control glass-input" placeholder="Subject" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="message" class="form-control glass-input" rows="5" placeholder="Your Message" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-brand glass-card">
+                                            <i class="las la-paper-plane me-2"></i>Send Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
-    <!---//CONTENT WRAPPER-->
 
     <script src="./Assets/JS/aos.js"></script>
     <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
     <script src="./Assets/JS/main.js"></script>
+    
+    <script>
+    // Show More Projects Functionality (inline for this file)
+    let projectsExpanded = false;
 
-   
+    function toggleProjects() {
+        const hiddenProjects = document.querySelectorAll('.hidden-project');
+        const btnText = document.getElementById('btnText');
+        const projectCount = document.querySelector('.project-count');
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        
+        if (!projectsExpanded) {
+            // Show hidden projects
+            hiddenProjects.forEach((project, index) => {
+                setTimeout(() => {
+                    project.classList.add('show');
+                }, index * 200);
+            });
+            
+            btnText.textContent = 'Show Less Projects';
+            projectCount.textContent = '(-3)';
+            showMoreBtn.querySelector('i').className = 'las la-minus-circle me-2';
+            projectsExpanded = true;
+        } else {
+            // Hide projects
+            hiddenProjects.forEach(project => {
+                project.classList.remove('show');
+            });
+            
+            btnText.textContent = 'Show More Projects';
+            projectCount.textContent = '(+3)';
+            showMoreBtn.querySelector('i').className = 'las la-plus-circle me-2';
+            projectsExpanded = false;
+            
+            // Scroll to projects section
+            const projectsSection = document.getElementById('projectsGrid');
+            if (projectsSection) {
+                projectsSection.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+        }
+    }
+    </script>
 </body>
-</html>  
+</html>
