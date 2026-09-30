@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./Assets/CSS/bootstrap.min.css">
     <link rel="stylesheet" href="./Assets/CSS/aos.css">
     <link rel="stylesheet" href="./Assets/CSS/line-awesome.min.css">
-    <link rel="stylesheet" href="./Assets/CSS/style.css?v=2">
+    <link rel="stylesheet" href="./Assets/CSS/style.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
@@ -93,6 +93,54 @@
             100% {
                 border-color: transparent;
             }
+        }
+
+        /* Filter buttons fallback */
+        .filter-btn {
+            padding: 9px 22px;
+            border-radius: 50px;
+            border: 1.5px solid rgba(224, 247, 128, 0.35);
+            background: transparent;
+            color: #b6cbce;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            transition: all 0.25s ease;
+        }
+
+        .filter-btn.active {
+            background: #e0f780;
+            border-color: #e0f780;
+            color: #022a30;
+        }
+
+        .filter-btn:hover {
+            border-color: #e0f780;
+            color: #e0f780;
+            background: rgba(224, 247, 128, 0.06);
+        }
+
+        /* Resume button fallback */
+        .btn-resume {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: #e0f780;
+            color: #022a30;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid #e0f780;
+            transition: all 0.3s ease;
+        }
+
+        .btn-resume:hover {
+            background: transparent;
+            color: #e0f780;
         }
     </style>
 </head>
@@ -821,7 +869,7 @@
 
     <script src="./Assets/JS/aos.js"></script>
     <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
-    <script src="./Assets/JS/main.js?v=2"></script>
+    <script src="./Assets/JS/main.js?v=3"></script>
 </body>
 
 </html>
