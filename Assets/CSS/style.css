@@ -912,3 +912,151 @@ img {
 .btn-resume:hover i {
     transform: translateY(3px);
 }
+
+/* =====================
+   Mobile Responsive Fixes
+   ===================== */
+@media (max-width: 991px) {
+
+    /* Navbar goes to top on mobile — remove sidebar offset */
+    #content-wrapper {
+        padding-left: 0 !important;
+    }
+
+    /* Home section full height on mobile */
+    #home {
+        padding-top: 100px;
+        padding-bottom: 60px;
+        height: auto !important;
+        min-height: 100vh;
+    }
+
+    /* Smaller heading on mobile */
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    /* Bio text padding */
+    .glass-card.p-4 {
+        padding: 1rem !important;
+    }
+
+    /* Resume button full width on small screens */
+    .btn-resume {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Filter tabs scroll horizontally if overflow */
+    .project-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .project-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Projects single column */
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Timeline spacing */
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 25px;
+    }
+
+    /* Achievement cards stack */
+    .achievement-card {
+        margin-bottom: 0;
+    }
+
+    /* Certification cards stack */
+    .col-lg-4.col-md-6 {
+        width: 100%;
+    }
+
+    /* Section padding */
+    .full-height {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    /* Contact form full width */
+    .contact-form {
+        max-width: 100%;
+    }
+
+    /* Tech logos smaller grid */
+    .tech-logos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 1.7rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .tech-logos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .logo-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-item span {
+        font-size: 0.75rem;
+    }
+
+    .project-content h4 {
+        font-size: 1rem;
+    }
+
+    .social-link {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+
+    /* Cursor hidden on touch devices */
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+}
+
+/* Touch devices — restore default cursor */
+@media (hover: none) and (pointer: coarse) {
+
+    *,
+    *::before,
+    *::after {
+        cursor: auto !important;
+    }
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+}
