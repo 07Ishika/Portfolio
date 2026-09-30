@@ -12,14 +12,65 @@
     --font-base: "Bai Jamjuree";
 }
 
-/* Light Theme Variables */
-[data-theme="light"] {
-    --color-body: #2c3e50;
-    --color-heading: #2c3e50;
-    --color-base: #ffffff;
-    --color-base2: #f8f9fa;
-    --color-brand: #3498db;
-    --color-brand2: #2980b9;
+/* Custom Professional Cursor */
+*,
+*::before,
+*::after {
+    cursor: none !important;
+}
+
+.cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--color-brand);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+    will-change: transform;
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--color-brand);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+    will-change: transform;
+    opacity: 0.7;
+}
+
+/* Hover state — ring expands, dot hides */
+.cursor-dot.hovering {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+}
+
+.cursor-ring.hovering {
+    width: 52px;
+    height: 52px;
+    opacity: 1;
+    background: rgba(224, 247, 128, 0.08);
+    border-color: var(--color-brand2);
+}
+
+/* Click state */
+.cursor-dot.clicking {
+    width: 12px;
+    height: 12px;
+    background: var(--color-brand2);
+}
+
+.cursor-ring.clicking {
+    width: 28px;
+    height: 28px;
 }
 
 body {
@@ -363,49 +414,7 @@ img {
     color: rgba(182, 203, 206, 0.7);
 }
 
-/* Cursor Magnification Effect */
-.cursor-magnify {
-    position: fixed;
-    width: 150px;
-    height: 150px;
-    border: 2px solid var(--color-brand);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    backdrop-filter: blur(10px);
-    background: rgba(224, 247, 128, 0.1);
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.3s ease;
-}
 
-.cursor-magnify.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-/* Theme Toggle */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    background: var(--color-brand);
-    color: var(--color-base);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px var(--color-brand);
-}
 
 /* Typing Animation */
 .typing-text {
@@ -634,7 +643,7 @@ img {
 /* Special handling for ZeroWasteNetwork image */
 .project-image img[alt="ZeroWasteNetwork Platform"] {
     object-fit: cover;
-    object-position: center top;
+    object-position: center center;
     background: var(--color-base);
     padding: 0;
     width: 100%;
@@ -774,4 +783,132 @@ img {
         padding: 10px 16px;
         font-size: 0.8rem;
     }
+}
+
+/* =====================
+   Project Filter Tabs
+   ===================== */
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+}
+
+.filter-btn {
+    padding: 9px 22px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(224, 247, 128, 0.35);
+    background: transparent;
+    color: var(--color-body);
+    font-family: var(--font-base), sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: none;
+    transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+    background: rgba(224, 247, 128, 0.06);
+}
+
+.filter-btn.active {
+    background: var(--color-brand);
+    border-color: var(--color-brand);
+    color: var(--color-base2);
+}
+
+/* Project category label inside card */
+.project-category-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+    margin-bottom: 8px;
+    opacity: 0.85;
+}
+
+/* Filter hide/show animation */
+.project-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card.hidden-by-filter {
+    display: none;
+}
+
+/* =====================
+   Achievement Card — Certificate Link
+   ===================== */
+.achievement-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+.achievement-card-link:hover .achievement-card {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(224, 247, 128, 0.2);
+    border-color: rgba(224, 247, 128, 0.4);
+}
+
+.achievement-card-link:hover {
+    color: inherit;
+}
+
+.cert-hint {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    letter-spacing: 0.04em;
+}
+
+.achievement-card-link:hover .cert-hint {
+    opacity: 1;
+}
+
+/* =====================
+   Resume Button
+   ===================== */
+.btn-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: var(--color-brand);
+    color: var(--color-base2);
+    font-family: var(--font-base), sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 2px solid var(--color-brand);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-resume i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-resume:hover {
+    background: transparent;
+    color: var(--color-brand);
+    box-shadow: 0 0 24px rgba(224, 247, 128, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-resume:hover i {
+    transform: translateY(3px);
 }

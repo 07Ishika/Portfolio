@@ -66,58 +66,72 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (roleElement) {
-        new TypeWriter(roleElement, ['IT ENGINEER', 'WEB DEVELOPER', 'PYTHON PROGRAMMER', 'AI ENTHUSIAST'], 2000);
+        new TypeWriter(roleElement, ['IT ENGINEER', 'WEB DEVELOPER', 'DATA ANALYST', 'AI ENTHUSIAST'], 2000);
     }
 });
 
-// Theme Toggle
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon = document.getElementById('themeIcon');
-const body = document.body;
+// Theme Toggle — removed per user request
 
-// Check for saved theme preference or default to 'dark'
-const currentTheme = localStorage.getItem('theme') || 'dark';
-body.setAttribute('data-theme', currentTheme);
+// Professional Custom Cursor
+const cursorDot = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
 
-// Update icon based on current theme
-if (currentTheme === 'light') {
-    themeIcon.className = 'las la-moon';
-} else {
-    themeIcon.className = 'las la-sun';
-}
+let mouseX = 0, mouseY = 0;
+let ringX = 0, ringY = 0;
 
-themeToggle.addEventListener('click', function () {
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-
-    // Update icon
-    if (newTheme === 'light') {
-        themeIcon.className = 'las la-moon';
-    } else {
-        themeIcon.className = 'las la-sun';
-    }
-});
-
-// Cursor Magnification Effect
-const cursorMagnify = document.getElementById('cursorMagnify');
-let isMouseMoving = false;
-
+// Move dot instantly, ring follows with lerp
 document.addEventListener('mousemove', function (e) {
-    cursorMagnify.style.left = e.clientX + 'px';
-    cursorMagnify.style.top = e.clientY + 'px';
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top = mouseY + 'px';
+});
 
-    if (!isMouseMoving) {
-        cursorMagnify.classList.add('active');
-        isMouseMoving = true;
+// Smooth ring follow
+function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+}
+animateRing();
+
+// Hover state on interactive elements
+const hoverTargets = 'a, button, [role="button"], input, textarea, select, label, .project-card, .achievement-card, .logo-item, .nav-link, .btn-project, .btn-show-more';
+
+document.addEventListener('mouseover', function (e) {
+    if (e.target.closest(hoverTargets)) {
+        cursorDot.classList.add('hovering');
+        cursorRing.classList.add('hovering');
     }
 });
 
+document.addEventListener('mouseout', function (e) {
+    if (e.target.closest(hoverTargets)) {
+        cursorDot.classList.remove('hovering');
+        cursorRing.classList.remove('hovering');
+    }
+});
+
+// Click state
+document.addEventListener('mousedown', function () {
+    cursorDot.classList.add('clicking');
+    cursorRing.classList.add('clicking');
+});
+document.addEventListener('mouseup', function () {
+    cursorDot.classList.remove('clicking');
+    cursorRing.classList.remove('clicking');
+});
+
+// Hide when leaving window
 document.addEventListener('mouseleave', function () {
-    cursorMagnify.classList.remove('active');
-    isMouseMoving = false;
+    cursorDot.style.opacity = '0';
+    cursorRing.style.opacity = '0';
+});
+document.addEventListener('mouseenter', function () {
+    cursorDot.style.opacity = '1';
+    cursorRing.style.opacity = '0.7';
 });
 
 // Skills Progress Animation
@@ -255,54 +269,36 @@ style.textContent = `
 document.head.appendChild(style);
 
 
-// Show More Projects Functionality
-let projectsExpanded = false;
+// Project Filter Tabs
+document.addEventListener('DOMContentLoaded', function () {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card[data-category]');
+    const noProjects = document.getElementById('noProjects');
 
-function toggleProjects() {
-    const hiddenProjects = document.querySelectorAll('.hidden-project');
-    const btnText = document.getElementById('btnText');
-    const projectCount = document.querySelector('.project-count');
-    const showMoreBtn = document.getElementById('showMoreBtn');
-    
-    if (!projectsExpanded) {
-        // Show hidden projects
-        hiddenProjects.forEach((project, index) => {
-            setTimeout(() => {
-                project.classList.add('show');
-            }, index * 200);
-        });
-        
-        btnText.textContent = 'Show Less Projects';
-        projectCount.textContent = '(-2)';
-        showMoreBtn.querySelector('i').className = 'las la-minus-circle me-2';
-        projectsExpanded = true;
-    } else {
-        // Hide projects
-        hiddenProjects.forEach(project => {
-            project.classList.remove('show');
-            setTimeout(() => {
-                project.style.display = 'none';
-            }, 300);
-        });
-        
-        setTimeout(() => {
-            hiddenProjects.forEach(project => {
-                project.style.display = 'block';
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            const filter = this.getAttribute('data-filter');
+            let visibleCount = 0;
+
+            projectCards.forEach((card, i) => {
+                const match = filter === 'all' || card.getAttribute('data-category') === filter;
+                if (match) {
+                    card.classList.remove('hidden-by-filter');
+                    // Stagger re-entry
+                    card.style.animationDelay = `${visibleCount * 80}ms`;
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden-by-filter');
+                }
             });
-        }, 400);
-        
-        btnText.textContent = 'Show More Projects';
-        projectCount.textContent = '(+2)';
-        showMoreBtn.querySelector('i').className = 'las la-plus-circle me-2';
-        projectsExpanded = false;
-        
-        // Scroll to projects section
-        const projectsSection = document.getElementById('projectsGrid');
-        if (projectsSection) {
-            projectsSection.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        }
-    }
-}
+
+            if (noProjects) {
+                noProjects.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+        });
+    });
+});
