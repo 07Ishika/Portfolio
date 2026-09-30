@@ -847,8 +847,20 @@ img {
 .achievement-card-link {
     display: block;
     text-decoration: none;
-    color: inherit;
+    color: var(--color-body) !important;
     height: 100%;
+}
+
+.achievement-card-link h4 {
+    color: var(--color-heading) !important;
+}
+
+.achievement-card-link p {
+    color: var(--color-body) !important;
+}
+
+.achievement-card-link .text-brand {
+    color: var(--color-brand) !important;
 }
 
 .achievement-card-link:hover .achievement-card {
@@ -858,7 +870,7 @@ img {
 }
 
 .achievement-card-link:hover {
-    color: inherit;
+    color: var(--color-body) !important;
 }
 
 .cert-hint {
