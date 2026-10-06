@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./Assets/CSS/bootstrap.min.css">
     <link rel="stylesheet" href="./Assets/CSS/aos.css">
     <link rel="stylesheet" href="./Assets/CSS/line-awesome.min.css">
-    <link rel="stylesheet" href="./Assets/CSS/style.css?v=3">
+    <link rel="stylesheet" href="./Assets/CSS/style.css?v=5">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
@@ -220,13 +220,12 @@
 
         <!---WORK SECTION-->
         <section id="work" class="full-height px-lg-5">
-            <div class="container">
+            <div class="container-fluid px-lg-4">
                 <div class="row pb-4" data-aos="fade-up">
                     <div class="col-lg-8">
                         <h6 class="text-brand">WORK</h6>
                         <h1>My Recent Projects</h1>
-                        <p class="lead">Full-stack apps, AI tools, and decentralized systems — built with real problems
-                            in mind.</p>
+                        <p class="lead">Full-stack apps, AI tools, and decentralized systems — built with real problems in mind.</p>
                     </div>
                 </div>
 
@@ -238,284 +237,190 @@
                     <button class="filter-btn" data-filter="frontend">Frontend &amp; UI</button>
                 </div>
 
-                <!-- Projects Grid -->
-                <div class="projects-grid" id="projectsGrid">
+                <!-- Split Layout -->
+                <div class="proj-split-layout" data-aos="fade-up" data-aos-delay="150">
 
-                    <!-- AI Analyst Assistant — AI & Data -->
-                    <div class="project-card glass-card" data-category="ai-data" data-aos="fade-up">
-                        <div class="project-image">
-                            <div class="project-placeholder"
-                                style="background: linear-gradient(135deg, #022a30 0%, #033f47 100%);">
-                                <i class="las la-brain" style="font-size: 4rem; color: var(--color-brand);"></i>
+                    <!-- LEFT: Project List -->
+                    <div class="proj-list" id="projList">
+
+                        <div class="proj-row active" data-category="ai-data"
+                            data-name="AI Analyst Assistant"
+                            data-category-label="AI &amp; Data"
+                            data-desc="6-step AI-guided data analysis tool — detects dataset type, suggests cleaning actions with risk reasoning, grounds all insights in real numbers, and exports a PDF report + Power BI-ready data."
+                            data-tech="Python,Streamlit,Groq API,Pandas,Plotly"
+                            data-live="https://ai-analyst-assistant.streamlit.app"
+                            data-github="https://github.com/07Ishika/ai-analyst-assistant">
+                            <div class="proj-row-left">
+                                <span class="proj-row-name">AI Analyst Assistant</span>
+                                <span class="proj-row-cat">AI &amp; Data</span>
                             </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://ai-analyst-assistant.streamlit.app" target="_blank"
-                                        class="btn-project live">
-                                        <i class="las la-external-link-alt"></i> Live Demo
-                                    </a>
-                                    <a href="https://github.com/07Ishika/ai-analyst-assistant" target="_blank"
-                                        class="btn-project github">
-                                        <i class="lab la-github"></i> GitHub
-                                    </a>
-                                </div>
+                            <div class="proj-row-tags">
+                                <span class="proj-mini-tag">Python</span>
+                                <span class="proj-mini-tag">Streamlit</span>
+                                <span class="proj-mini-tag">Groq API</span>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <div class="project-category-tag">AI &amp; Data</div>
-                            <h4>AI Analyst Assistant</h4>
-                            <p>6-step AI-guided data analysis tool — detects dataset type, suggests cleaning actions
-                                with risk reasoning, grounds all insights in real numbers, and exports a PDF report +
-                                Power BI-ready data.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Streamlit</span>
-                                <span class="tech-tag">Groq API</span>
-                                <span class="tech-tag">Pandas</span>
-                                <span class="tech-tag">Plotly</span>
+
+                        <div class="proj-row" data-category="fullstack"
+                            data-name="Voyagery"
+                            data-category-label="Full-Stack · Avishkar 2025"
+                            data-desc="Immigration guidance platform with role-based dashboards, consultation scheduling, JWT + Google OAuth, and an AI cost-of-living comparison. Deployed on Vercel + Render + MongoDB Atlas."
+                            data-tech="React,Node.js,MongoDB,Express,JWT,OAuth"
+                            data-live="https://voyagery.vercel.app/"
+                            data-github="https://github.com/07Ishika/voyagery">
+                            <div class="proj-row-left">
+                                <span class="proj-row-name">Voyagery</span>
+                                <span class="proj-row-cat">Full-Stack <span class="proj-badge-pill">Avishkar 2025</span></span>
                             </div>
+                            <div class="proj-row-tags">
+                                <span class="proj-mini-tag">React</span>
+                                <span class="proj-mini-tag">Node.js</span>
+                                <span class="proj-mini-tag">MongoDB</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-row" data-category="fullstack"
+                            data-name="Shardize"
+                            data-category-label="Full-Stack · Final Year"
+                            data-desc="Decentralized cloud storage on IPFS — files encrypted client-side (AES-256-GCM), split across peer nodes. Built the full React frontend, animated network diagram, dark UI system, and AWS S3 deployment."
+                            data-tech="React,Django,IPFS,AWS S3,AES-256"
+                            data-live=""
+                            data-github="https://github.com/07Ishika/Shardize-Client"
+                            data-github2="https://github.com/meetrshah2112/decentralized-storage">
+                            <div class="proj-row-left">
+                                <span class="proj-row-name">Shardize</span>
+                                <span class="proj-row-cat">Full-Stack <span class="proj-badge-pill">Final Year</span></span>
+                            </div>
+                            <div class="proj-row-tags">
+                                <span class="proj-mini-tag">React</span>
+                                <span class="proj-mini-tag">IPFS</span>
+                                <span class="proj-mini-tag">AES-256</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-row" data-category="fullstack"
+                            data-name="ZeroWasteNetwork"
+                            data-category-label="Full-Stack · Group PBL (Sem 4)"
+                            data-desc="Food waste management platform connecting hotels, colleges, and mess halls with people in need. Features food expiry tracking and a compost community integration."
+                            data-tech="React,Java,MySQL,Spring Boot"
+                            data-live="https://zerowastenetwork.vercel.app"
+                            data-github="https://github.com/07Ishika/Zero-Waste-Network">
+                            <div class="proj-row-left">
+                                <span class="proj-row-name">ZeroWasteNetwork</span>
+                                <span class="proj-row-cat">Full-Stack <span class="proj-badge-pill">Group PBL (Sem 4)</span></span>
+                            </div>
+                            <div class="proj-row-tags">
+                                <span class="proj-mini-tag">React</span>
+                                <span class="proj-mini-tag">Java</span>
+                                <span class="proj-mini-tag">Spring Boot</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-row" data-category="fullstack"
+                            data-name="NGO Management System"
+                            data-category-label="Full-Stack · Group PBL (Sem 3)"
+                            data-desc="Group PBL project — web application for NGO operations covering donation scheduling, volunteer coordination, and donor management. Built collaboratively with a full MERN stack."
+                            data-tech="React,Node.js,MongoDB,Express"
+                            data-live=""
+                            data-github="https://github.com/Veer564/PBL-Project-Sem-3">
+                            <div class="proj-row-left">
+                                <span class="proj-row-name">NGO Management System</span>
+                                <span class="proj-row-cat">Full-Stack <span class="proj-badge-pill">Group PBL (Sem 3)</span></span>
+                            </div>
+                            <div class="proj-row-tags">
+                                <span class="proj-mini-tag">React</span>
+                                <span class="proj-mini-tag">Node.js</span>
+                                <span class="proj-mini-tag">MongoDB</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-row" data-category="frontend"
+                            data-name="Khadi Threads"
+                            data-category-label="Frontend &amp; UI"
+                            data-desc="Responsive e-commerce landing page for Khadi cloth products. Modern design, product showcase, and smooth UX promoting traditional Indian textiles."
+                            data-tech="React,Tailwind CSS,JavaScript"
+                            data-live="https://07ishika.github.io/Khadi-Threads-React/"
+                            data-github="https://github.com/07Ishika/Khadi-Threads-React">
+                            <div class="proj-row-left">
+                                <span class="proj-row-name">Khadi Threads</span>
+                                <span class="proj-row-cat">Frontend &amp; UI</span>
+                            </div>
+                            <div class="proj-row-tags">
+                                <span class="proj-mini-tag">React</span>
+                                <span class="proj-mini-tag">Tailwind CSS</span>
+                                <span class="proj-mini-tag">JS</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-row" data-category="frontend"
+                            data-name="Simon Says Game"
+                            data-category-label="Frontend &amp; UI"
+                            data-desc="Interactive memory game with color and sound sequences. Built with vanilla JavaScript for smooth gameplay and increasing difficulty levels."
+                            data-tech="HTML,CSS,JavaScript"
+                            data-live="https://07ishika.github.io/SiminSaysGame/"
+                            data-github="https://github.com/07Ishika/SiminSaysGame">
+                            <div class="proj-row-left">
+                                <span class="proj-row-name">Simon Says Game</span>
+                                <span class="proj-row-cat">Frontend &amp; UI</span>
+                            </div>
+                            <div class="proj-row-tags">
+                                <span class="proj-mini-tag">HTML</span>
+                                <span class="proj-mini-tag">CSS</span>
+                                <span class="proj-mini-tag">JavaScript</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-row" data-category="frontend"
+                            data-name="Chanting WebApp"
+                            data-category-label="Frontend &amp; UI"
+                            data-desc="Meditation app with personalized mantras, session tracking, and ambient sound integration built with the Web Audio API."
+                            data-tech="HTML,CSS,JavaScript,Web Audio API"
+                            data-live="https://07ishika.github.io/Chanting_WebApp/"
+                            data-github="https://github.com/07Ishika/Chanting_WebApp">
+                            <div class="proj-row-left">
+                                <span class="proj-row-name">Chanting WebApp</span>
+                                <span class="proj-row-cat">Frontend &amp; UI</span>
+                            </div>
+                            <div class="proj-row-tags">
+                                <span class="proj-mini-tag">HTML</span>
+                                <span class="proj-mini-tag">CSS</span>
+                                <span class="proj-mini-tag">Web Audio API</span>
+                            </div>
+                        </div>
+
+                        <div id="noProjMsg" style="display:none; padding:20px; color:var(--color-body); font-size:0.95rem;">No projects in this category yet.</div>
+                    </div>
+
+                    <!-- RIGHT: Glass Detail Panel -->
+                    <div class="proj-detail-panel" id="projDetailPanel">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <p class="proj-detail-label mb-0">Project Name</p>
+                            <span class="proj-detail-cat-badge" id="pdCat">AI &amp; Data</span>
+                        </div>
+                        <h3 class="proj-detail-name" id="pdName">AI Analyst Assistant</h3>
+
+                        <p class="proj-detail-label" style="margin-top:22px;">Description</p>
+                        <p class="proj-detail-desc" id="pdDesc">6-step AI-guided data analysis tool — detects dataset type, suggests cleaning actions with risk reasoning, grounds all insights in real numbers, and exports a PDF report + Power BI-ready data.</p>
+
+                        <p class="proj-detail-label" style="margin-top:22px;">Technologies</p>
+                        <div class="proj-detail-tags" id="pdTags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Groq API</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Plotly</span>
+                        </div>
+
+                        <div class="proj-detail-btns" id="pdBtns">
+                            <a href="https://ai-analyst-assistant.streamlit.app" target="_blank" class="proj-btn-live" id="pdLive">
+                                <i class="las la-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/07Ishika/ai-analyst-assistant" target="_blank" class="proj-btn-gh" id="pdGh">
+                                <i class="lab la-github"></i> Github Repo
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Voyagery — Full-Stack -->
-                    <div class="project-card glass-card" data-category="fullstack" data-aos="fade-up"
-                        data-aos-delay="100">
-                        <div class="project-image">
-                            <div class="project-placeholder"
-                                style="background: linear-gradient(135deg, #022a30 0%, #033f47 100%);">
-                                <i class="las la-globe-americas"
-                                    style="font-size: 4rem; color: var(--color-brand);"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://voyagery.vercel.app/" target="_blank" class="btn-project live">
-                                        <i class="las la-external-link-alt"></i> Live Demo
-                                    </a>
-                                    <a href="https://github.com/07Ishika/voyagery" target="_blank"
-                                        class="btn-project github">
-                                        <i class="lab la-github"></i> GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-category-tag">Full-Stack <span
-                                    style="color:var(--color-brand); margin-left:6px;">· Avishkar 2025</span></div>
-                            <h4>Voyagery</h4>
-                            <p>Immigration guidance platform with role-based dashboards, consultation scheduling, JWT +
-                                Google OAuth, and an AI cost-of-living comparison. Deployed on Vercel + Render + MongoDB
-                                Atlas.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
-                                <span class="tech-tag">Express</span>
-                                <span class="tech-tag">JWT</span>
-                                <span class="tech-tag">OAuth</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Shardize — Full-Stack -->
-                    <div class="project-card glass-card" data-category="fullstack" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="project-image">
-                            <div class="project-placeholder"
-                                style="background: linear-gradient(135deg, #022a30 0%, #033f47 100%);">
-                                <i class="las la-network-wired" style="font-size: 4rem; color: var(--color-brand);"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/07Ishika/Shardize-Client" target="_blank"
-                                        class="btn-project github">
-                                        <i class="lab la-github"></i> Frontend
-                                    </a>
-                                    <a href="https://github.com/meetrshah2112/decentralized-storage" target="_blank"
-                                        class="btn-project github">
-                                        <i class="lab la-github"></i> Backend
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-category-tag">Full-Stack <span
-                                    style="color:var(--color-brand); margin-left:6px;">· Final Year</span></div>
-                            <h4>Shardize</h4>
-                            <p>Decentralized cloud storage on IPFS — files encrypted client-side (AES-256-GCM), split
-                                across peer nodes. Built the full React frontend, animated network diagram, dark UI
-                                system, and AWS S3 deployment.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Django</span>
-                                <span class="tech-tag">IPFS</span>
-                                <span class="tech-tag">AWS S3</span>
-                                <span class="tech-tag">AES-256</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ZeroWasteNetwork — Full-Stack -->
-                    <div class="project-card glass-card" data-category="fullstack" data-aos="fade-up">
-                        <div class="project-image">
-                            <img src="./Assets/Images/Zerowastentwk porfolioimg.jpeg" alt="ZeroWasteNetwork Platform">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://zerowastenetwork.vercel.app" target="_blank"
-                                        class="btn-project live">
-                                        <i class="las la-external-link-alt"></i> Live Demo
-                                    </a>
-                                    <a href="https://github.com/07Ishika/Zero-Waste-Network" target="_blank"
-                                        class="btn-project github">
-                                        <i class="lab la-github"></i> GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-category-tag">Full-Stack</div>
-                            <h4>ZeroWasteNetwork</h4>
-                            <p>Food waste management platform connecting hotels, colleges, and mess halls with people in
-                                need. Features food expiry tracking and a compost community integration.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">Spring Boot</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NGO Management — Full-Stack -->
-                    <div class="project-card glass-card" data-category="fullstack" data-aos="fade-up"
-                        data-aos-delay="100">
-                        <div class="project-image">
-                            <img src="./Assets/Images/Project1-img portfolio.png" alt="NGO Management System">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/Veer564/PBL-Project-Sem-3" target="_blank"
-                                        class="btn-project github">
-                                        <i class="lab la-github"></i> GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-category-tag">Full-Stack <span
-                                    style="color:var(--color-body); margin-left:6px; font-weight:400;">· Group
-                                    PBL</span></div>
-                            <h4>NGO Management System</h4>
-                            <p>Group PBL project — web application for NGO operations covering donation scheduling,
-                                volunteer coordination, and donor management. Built collaboratively with a full MERN
-                                stack.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
-                                <span class="tech-tag">Express</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Khadi Threads — Frontend -->
-                    <div class="project-card glass-card" data-category="frontend" data-aos="fade-up">
-                        <div class="project-image">
-                            <div class="project-placeholder"
-                                style="background: linear-gradient(135deg, #022a30 0%, #033f47 100%);">
-                                <i class="las la-tshirt" style="font-size: 4rem; color: var(--color-brand);"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://07ishika.github.io/Khadi-Threads-React/" target="_blank"
-                                        class="btn-project live">
-                                        <i class="las la-external-link-alt"></i> Live Demo
-                                    </a>
-                                    <a href="https://github.com/07Ishika/Khadi-Threads-React" target="_blank"
-                                        class="btn-project github">
-                                        <i class="lab la-github"></i> GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-category-tag">Frontend &amp; UI</div>
-                            <h4>Khadi Threads</h4>
-                            <p>Responsive e-commerce landing page for Khadi cloth products. Modern design, product
-                                showcase, and smooth UX promoting traditional Indian textiles.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Tailwind CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Simon Says — Frontend -->
-                    <div class="project-card glass-card" data-category="frontend" data-aos="fade-up"
-                        data-aos-delay="100">
-                        <div class="project-image">
-                            <img src="./Assets/Images/Project3-img portfolio.png" alt="Simon Says Game">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://07ishika.github.io/SiminSaysGame/" target="_blank"
-                                        class="btn-project live">
-                                        <i class="las la-external-link-alt"></i> Live Demo
-                                    </a>
-                                    <a href="https://github.com/07Ishika/SiminSaysGame" target="_blank"
-                                        class="btn-project github">
-                                        <i class="lab la-github"></i> GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-category-tag">Frontend &amp; UI</div>
-                            <h4>Simon Says Game</h4>
-                            <p>Interactive memory game with color and sound sequences. Built with vanilla JavaScript for
-                                smooth gameplay.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Chanting WebApp — Frontend -->
-                    <div class="project-card glass-card" data-category="frontend" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="project-image">
-                            <img src="./Assets/Images/Project4-img portfolio.png" alt="Chanting WebApp">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://07ishika.github.io/Chanting_WebApp/" target="_blank"
-                                        class="btn-project live">
-                                        <i class="las la-external-link-alt"></i> Live Demo
-                                    </a>
-                                    <a href="https://github.com/07Ishika/Chanting_WebApp" target="_blank"
-                                        class="btn-project github">
-                                        <i class="lab la-github"></i> GitHub
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-category-tag">Frontend &amp; UI</div>
-                            <h4>Chanting WebApp</h4>
-                            <p>Meditation app with personalized mantras, session tracking, and ambient sound integration
-                                built with the Web Audio API.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Web Audio API</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- No results message -->
-                <div id="noProjects" style="display:none;" class="text-center py-5">
-                    <p style="color:var(--color-body); font-size:1.1rem;">No projects in this category yet.</p>
                 </div>
             </div>
         </section>
@@ -869,7 +774,7 @@
 
     <script src="./Assets/JS/aos.js"></script>
     <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
-    <script src="./Assets/JS/main.js?v=3"></script>
+    <script src="./Assets/JS/main.js?v=5"></script>
 </body>
 
 </html>

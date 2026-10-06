@@ -269,36 +269,120 @@ style.textContent = `
 document.head.appendChild(style);
 
 
-// Project Filter Tabs
+// Project Split Layout — Row click + Filter
 document.addEventListener('DOMContentLoaded', function () {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card[data-category]');
-    const noProjects = document.getElementById('noProjects');
 
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projRows = document.querySelectorAll('.proj-row');
+    const noProjMsg = document.getElementById('noProjMsg');
+
+    // Panel elements
+    const pdName = document.getElementById('pdName');
+    const pdCat = document.getElementById('pdCat');
+    const pdDesc = document.getElementById('pdDesc');
+    const pdTags = document.getElementById('pdTags');
+    const pdBtns = document.getElementById('pdBtns');
+
+    function updatePanel(row) {
+        const name = row.getAttribute('data-name') || '';
+        const cat = row.getAttribute('data-category-label') || '';
+        const desc = row.getAttribute('data-desc') || '';
+        const techRaw = row.getAttribute('data-tech') || '';
+        const live = row.getAttribute('data-live') || '';
+        const github = row.getAttribute('data-github') || '';
+        const github2 = row.getAttribute('data-github2') || '';
+
+        if (pdName) pdName.textContent = name;
+        if (pdCat) pdCat.innerHTML = cat;
+        if (pdDesc) pdDesc.textContent = desc;
+
+        // Tech tags
+        if (pdTags) {
+            pdTags.innerHTML = '';
+            techRaw.split(',').forEach(t => {
+                const span = document.createElement('span');
+                span.className = 'tech-tag';
+                span.textContent = t.trim();
+                pdTags.appendChild(span);
+            });
+        }
+
+        // Buttons
+        if (pdBtns) {
+            pdBtns.innerHTML = '';
+            if (live) {
+                const a = document.createElement('a');
+                a.href = live;
+                a.target = '_blank';
+                a.className = 'proj-btn-live';
+                a.innerHTML = '<i class="las la-external-link-alt"></i> Live Demo';
+                pdBtns.appendChild(a);
+            }
+            if (github) {
+                const a = document.createElement('a');
+                a.href = github;
+                a.target = '_blank';
+                a.className = 'proj-btn-gh';
+                a.innerHTML = '<i class="lab la-github"></i> Github Repo';
+                pdBtns.appendChild(a);
+            }
+            if (github2) {
+                const a = document.createElement('a');
+                a.href = github2;
+                a.target = '_blank';
+                a.className = 'proj-btn-gh';
+                a.innerHTML = '<i class="lab la-github"></i> Backend';
+                pdBtns.appendChild(a);
+            }
+        }
+    }
+
+    // Click row
+    projRows.forEach(row => {
+        row.addEventListener('click', function () {
+            projRows.forEach(r => r.classList.remove('active'));
+            this.classList.add('active');
+            updatePanel(this);
+        });
+    });
+
+    // Filter tabs
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function () {
-            // Update active button
             filterBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
             const filter = this.getAttribute('data-filter');
             let visibleCount = 0;
+            let firstVisible = null;
 
-            projectCards.forEach((card, i) => {
-                const match = filter === 'all' || card.getAttribute('data-category') === filter;
+            projRows.forEach(row => {
+                const cat = row.getAttribute('data-category');
+                const match = filter === 'all' || cat === filter;
                 if (match) {
-                    card.classList.remove('hidden-by-filter');
-                    // Stagger re-entry
-                    card.style.animationDelay = `${visibleCount * 80}ms`;
+                    row.style.display = 'flex';
                     visibleCount++;
+                    if (!firstVisible) firstVisible = row;
                 } else {
-                    card.classList.add('hidden-by-filter');
+                    row.style.display = 'none';
+                    row.classList.remove('active');
                 }
             });
 
-            if (noProjects) {
-                noProjects.style.display = visibleCount === 0 ? 'block' : 'none';
+            // Auto-select first visible row
+            if (firstVisible) {
+                projRows.forEach(r => r.classList.remove('active'));
+                firstVisible.classList.add('active');
+                updatePanel(firstVisible);
+            }
+
+            if (noProjMsg) {
+                noProjMsg.style.display = visibleCount === 0 ? 'block' : 'none';
             }
         });
     });
+
+    // Init panel with first active row
+    const initialActive = document.querySelector('.proj-row.active');
+    if (initialActive) updatePanel(initialActive);
 });
